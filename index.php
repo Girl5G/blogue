@@ -1,20 +1,22 @@
 <?php
 //connxion a la base de base de donner
-$connexion=mysqli_connect('localhost','root','' ,'blogue');
-if(!$connexion){ die('Erreur de connexion à la Base de Donnée');}
-//selection des articles
-$requete ="SELECT * FROM article";
-$query =mysqli_query($connexion,$requete);
-if(!$query){
+ $connexion=mysqli_connect('localhost','root','' ,'blogue');
+ if(!$connexion){ die('Erreur de connexion à la Base de Donnée');}
+ //selection des articles
+ $requete ="SELECT * FROM article";
+ $query =mysqli_query($connexion,$requete);
+ if(!$query){
     echo "OOps! Une erreur est survenue, veuillez réessayer plus tard!";
-} else{
-    echo "ok";
+ } 
+ else{
+    //  echo "ok";
     $articles =mysqli_fetch_all($query,MYSQLI_ASSOC);
-    //var_dump ($articles);
-}
+    // var_dump ($articles);
+ }
 
 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -217,26 +219,20 @@ if(!$query){
         </ul>
     </header>
     <main>
-    <div id="content">
+        <div id="content">
             <h3>Articles postés</h3>
             <div id="posted">
-                
-               <?php
-                    foreach($articles as $article):
-                ?>
+                 <?php foreach($articles as $value):?>
                 <div class="article">
-                    <img src="<?php echo $article["image"];?>"
+                    <img src="<?php echo $value['image']; ?>"
                         alt="">
-                    <a class="title" href="voir.php?id=<?php echo $article["id"]?>" ><?php echo $article["title"];?></a>
+                    <a class="title" href="voir.php?id=<?php echo $value["id"];?>"><?php echo $value['title'] ;?></a>
                     <div class="description">
-                        <p><?php echo $article["description"];?></p>
-                        <p class="date"><?php echo $article["date"];?></p>
+                        <p><?php echo $value['description'] ;?></p>
+                        <p class="date"><?php date('l d F Y',strtotime($article["date"]));?></p>
                     </div>
                 </div>
                 <?php endforeach;?>
-                
-            </div>
-        </div>
             </div>
         </div>
     </main>

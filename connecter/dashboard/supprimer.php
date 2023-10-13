@@ -11,16 +11,26 @@ $selection="SELECT * FROM user WHERE id='$sessionUserId' ";
 
  $query=mysqli_query ($connexion,$selection);
 
- $user=mysqli_fetch_assoc($query);
- if($user){
-
+ $recuperation=mysqli_fetch_assoc($query);
+ if($recuperation){
+    var_dump($recuperation);
  }else{
     die("utilisateur inconnu");
  }
 }else{
     header('LOCATION:../../connexion.php');
 }
-
+if($_GET['id']){
+    $id= $_GET['id'];
+    $rox = "DELETE  FROM article WHERE id='$id' ";
+    $execute = mysqli_query($connexion,$rox);
+    if($execute){
+        echo "suppression actualisé";
+    }else{
+        echo "erreur ";
+    }
+    header('LOCATION:article.php');
+}
 ?>
 
 <!DOCTYPE html>

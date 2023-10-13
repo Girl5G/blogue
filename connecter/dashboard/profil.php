@@ -13,7 +13,7 @@ $selection="SELECT * FROM user WHERE id='$sessionUserId' ";
 
  $recuperation=mysqli_fetch_assoc($query);
  if($recuperation){
-    var_dump($recuperation);
+    // var_dump($recuperation);
  }else{
     die("utilisateur inconnu");
  }
@@ -240,19 +240,19 @@ $selection="SELECT * FROM user WHERE id='$sessionUserId' ";
                 <h4>Modifier mes informations</h4>
                 <div class="group">
                     <label for="email">Modifier l'email</label>
-                    <input type="email" name="" id="email" placeholder="johnDoe@ex.ci">
+                    <input type="email" name="email" id="email" placeholder="johnDoe@ex.ci">
                 </div>
                 <div class="group">
                     <label for="img_url">Modifier le lien de la photo</label>
-                    <input type="url" name="" id="img_url" placeholder="https://images.unsplash.com/photo-1696185082767-29f8095a22a9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyMHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=700&q=60">
+                    <input type="url" name="img_url" id="img_url" placeholder="https://images.unsplash.com/photo-1696185082767-29f8095a22a9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyMHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=700&q=60">
                 </div>
                 <div class="group">
                     <label for="password">Nouveau mot de passe</label>
-                    <input type="password" name="" id="password" placeholder="nouveau mot de passe">
+                    <input type="password" name="password" id="password" placeholder="nouveau mot de passe">
                 </div>
                 <div class="group">
                     <label for="cpassword">Confirmer mot de passe</label>
-                    <input type="text" name="" id="cpassword" placeholder="confirmer le mot de passe">
+                    <input type="text" name="cpassword" id="cpassword" placeholder="confirmer le mot de passe">
                 </div>
                 <input type="submit" value="Modifier mes informations">
             </form>
